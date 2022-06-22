@@ -1,5 +1,5 @@
 function [x_lambda,rho,eta] = tikhonov(U,s,V,b,lambda,x_0)
-%TIKHONOV Tikhonov regularization.
+% TIKHONOV Tikhonov regularization.
 %
 % [x_lambda,rho,eta] = tikhonov(U,s,V,b,lambda,x_0)
 % [x_lambda,rho,eta] = tikhonov(U,sm,X,b,lambda,x_0) ,  sm = [sigma,mu]

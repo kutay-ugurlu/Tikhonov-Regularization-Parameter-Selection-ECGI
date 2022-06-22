@@ -16,17 +16,17 @@ lambda = zeros(nFrames, 1);
 % [X, X2] = deal(zeros(size(A,2), nFrames));
 X = zeros(size(A,2), nFrames);
 
-for fr = 1:nFrames,
+for fr = 1:nFrames
    [lambda(fr),wi,wi1,wi2] = l_curve(U, s, Y(:,fr));
    if lambda(fr)>2
-       if fr == 1,
+       if fr == 1
            lambda(fr) = 0.05;
        else
            lambda(fr)=lambda(fr-1);
        end
    end
    if lambda(fr)<0.0005
-       if fr == 1,
+       if fr == 1
            lambda(fr) = 0.05;
        else
            lambda(fr)=lambda(fr-1);
@@ -35,4 +35,5 @@ for fr = 1:nFrames,
    X(:,fr) = tikhonov(U,s,V,Y(:,fr),lambda(fr));
 %    [lambda2(fr),wii,wii1,wii2] = l_curve(U2,sm,Y(:,fr),'Tikh',L,V2);
 %    X2(:,fr) = tikhonov(U2,sm,V2,Y(:,fr),lambda2(fr));
-end;
+end
+end
