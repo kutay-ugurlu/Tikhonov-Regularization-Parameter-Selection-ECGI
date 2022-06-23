@@ -17,7 +17,7 @@ lambda = zeros(nFrames, 1);
 X = zeros(size(A,2), nFrames);
 
 for fr = 1:nFrames
-   [lambda(fr),wi,wi1,wi2] = l_curve(U, s, Y(:,fr));
+   [lambda(fr),rho,eta,reg_param] = l_curve(U, s, Y(:,fr));
    if lambda(fr)>2
        if fr == 1
            lambda(fr) = 0.05;
