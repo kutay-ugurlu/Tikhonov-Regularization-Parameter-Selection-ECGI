@@ -1,5 +1,6 @@
-function X2 = tikhonov_solution(Y,A)
+function [X2, lambda] = tikhonov_solution(Y,A)
 [X,lambda] = tikhonovRT(Y, A);
-[X2] = tikhonovRT_singLam(Y, A, median(lambda));
+lambda = median(lambda);
+[X2] = tikhonovRT_singLam(Y, A, lambda);
 end
 
