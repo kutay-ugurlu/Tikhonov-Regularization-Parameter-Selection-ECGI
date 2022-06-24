@@ -82,4 +82,5 @@ GrammStruct.MetricNames = repelem({'CC';'RE'},2*l_files);
 GrammStruct.MethodNumbers = double(strcmp(GrammStruct.RegMethodNames, "ADPC"));
 GrammStruct.MetricNumbers = double(strcmp(GrammStruct.MetricNames, "C"));
 save("ADPC_vs_LCurve_Results.mat","GrammStruct")
-draw_gramm("ADPC_vs_LCurve_Results.mat",'Metrics','ADPC vs L-Curve Results')
+draw_gramm("ADPC_vs_LCurve_Results.mat",'MetricNames','Metrics','RegMethodNames','ADPC vs L-Curve Results')
+draw_gramm()
