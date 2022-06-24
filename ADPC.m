@@ -1,4 +1,4 @@
-function [xlambda, lambda] = ADPC(A,Y, ratio)
+function [xlambda, lambda] = ADPC(A,Y, ratio, show_plot)
 
 [U,S,V] = svd(A);
 [nodes, frames] = size(Y);
@@ -18,9 +18,9 @@ for tk = 1:frames
     end
 
     %% Fit the polynomial and select the best order and the regarding coefficients
-    [p5,s5,mu5] = polyfit(sv_idx,polynome,35);
-    [p6,s6,mu6] = polyfit(sv_idx,polynome,40);
-    [p7,s7,mu7] = polyfit(sv_idx,polynome,45);
+    [p5,s5,mu5] = polyfit(sv_idx,polynome,5);
+    [p6,s6,mu6] = polyfit(sv_idx,polynome,6);
+    [p7,s7,mu7] = polyfit(sv_idx,polynome,7);
     error5 = s5.normr;
     error6 = s6.normr;
     error7 = s7.normr;
@@ -35,11 +35,13 @@ for tk = 1:frames
     fitted_polynome = polyval(coefs, sv_idx,[],mu_container{min_idx}); % coefs = p5;
 
     %% Draw
-    clf
-    plot(fitted_polynome)
-    hold on
-    plot(log_s)
-    legend('F','s')
+    if show_plot
+        clf
+        plot(fitted_polynome)
+        hold on
+        plot(log_s)
+        legend('F','s')
+    end
 
     %% Find the nearest SV 
     [~, mi] = find(log_s>fitted_polynome,1,'last');
