@@ -33,5 +33,6 @@ g.set_title({Title,['Simulations run on 16 different beats']});
 figure('Position',[0 100 1800 600]);
 g.stat_boxplot()
 g.draw();
+g.export('file_name',['images/',Title],'file_type','svg')
 end
 
