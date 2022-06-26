@@ -1,4 +1,4 @@
-function picard_plot(A,b)
+function picard_plot(A,b,time_frame)
 [U,s,V] = svd(A);
 s = diag(s);
 m = length(U);
@@ -21,6 +21,6 @@ loglog(xaxis,ratios,'Marker','o', 'MarkerFaceColor','black','LineStyle',':')
 hold on 
 xlabel('Singular value Index i of \sigma_{i}')
 legend('$\sigma_i$','$u_i^Tb$','$\frac{u_i^Tb}{\sigma_i}$','interpreter','latex','Location','northwest','Fontsize',20)
-title('DPC Plot')
+title(['DPC Plot for t_k=',num2str(time_frame)])
 end
 

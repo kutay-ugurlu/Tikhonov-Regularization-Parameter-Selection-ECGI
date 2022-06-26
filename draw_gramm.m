@@ -1,5 +1,5 @@
 function draw_gramm(input_filename,x,y,color, Title)
-
+addpath("Gramm");
 data = load(input_filename);
 f = fields(data);
 data = data.(f{1});
@@ -33,6 +33,6 @@ g.set_title({Title,['Simulations run on 16 different beats']});
 figure('Position',[0 100 1800 600]);
 g.stat_boxplot()
 g.draw();
-g.export('file_name',['images/',Title],'file_type','svg')
+g.export('file_name',['images/',strrep(strrep(strrep(Title,' ','_'),':',''),'.','_')],'file_type','svg')
 end
 

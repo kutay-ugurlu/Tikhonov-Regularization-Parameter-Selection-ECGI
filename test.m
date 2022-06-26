@@ -24,12 +24,13 @@ folder = files(1).folder;
 
 %% Tikhonov Solution loop
 show_plot = 0;
-CC_list = zeros(2,l_files);
-RE_list = zeros(2,l_files);
 
-for ratio = [10,12.5,15]
+for ratio = [1,10,13,15]
+    CC_list = zeros(2,l_files);
+    RE_list = zeros(2,l_files);
     for i = 1:l_files
         display(['Now processing file ',num2str(i)])
+        pause(0.1)
         fname = files(i).name;
         folder = files(i).folder;
         file = load([folder,'\',fname]);
@@ -40,7 +41,7 @@ for ratio = [10,12.5,15]
         Y = A_for*X_test;
         [Y, std_noise, N] = add_noise(Y, 30, 'SNR');
         [Xtikh, lambda_L] = tikhonov_solution(Y,A_inv);
-        [Xtikh_ADPC, lambda] = ADPC(A_inv,Y, ratio, 0);
+        [Xtikh_ADPC, lambda] = ADPC(A_inv,Y, ratio, 0, 1, ['gifs/TestBeat_',num2str(i),'_Ratio_',num2str(ratio),'.gif']);
         temp_struct.Xinv = Xtikh;
         [RE_nodes, ~, ~] = calculate_re(X_test',Xtikh_ADPC');
         CC_rowwise = calculate_cc(X_test',Xtikh_ADPC');
@@ -73,16 +74,15 @@ for ratio = [10,12.5,15]
         CC_list(2,i) = median(CC_rowwise_Lcurve);
         RE_list(1,i) = median(RE_nodes);
         RE_list(2,i) = median(RE_nodes_Lcurve);
-    
-        GrammStruct = struct();
-        GrammStruct.Metrics = [CC_list(:) ; RE_list(:)];
-        GrammStruct.RegMethodNames = repmat(repelem(["ADPC";"L-Curve"],l_files,1),2,1);
-        GrammStruct.RegMethodNumbers = strcmp(GrammStruct.RegMethodNames,"ADPC");
-        GrammStruct.MetricNames = repelem({'CC';'RE'},2*l_files);
-        GrammStruct.MethodNumbers = double(strcmp(GrammStruct.RegMethodNames, "ADPC"));
-        GrammStruct.MetricNumbers = double(strcmp(GrammStruct.MetricNames, "C"));
-        save(['ADPC_vs_LCurve_Results_Ratio_',num2str(ratio),'.mat'],"GrammStruct")
-        draw_gramm(['ADPC_vs_LCurve_Results_Ratio_',num2str(ratio),'.mat'],'MetricNames','Metrics','RegMethodNames' ...
-            ,['ADPC vs L-Curve Results for ADPC Ratio: ',num2str(ratio)])
     end
+    GrammStruct = struct();
+    GrammStruct.Metrics = [CC_list(:) ; RE_list(:)];
+    GrammStruct.RegMethodNames = repmat(repelem(["ADPC";"L-Curve"],l_files,1),2,1);
+    GrammStruct.RegMethodNumbers = strcmp(GrammStruct.RegMethodNames,"ADPC");
+    GrammStruct.MetricNames = repelem({'CC';'RE'},2*l_files);
+    GrammStruct.MethodNumbers = double(strcmp(GrammStruct.RegMethodNames, "ADPC"));
+    GrammStruct.MetricNumbers = double(strcmp(GrammStruct.MetricNames, "C"));
+    save(['ADPC_vs_LCurve_Results_Ratio_',num2str(ratio),'.mat'],"GrammStruct")
+    draw_gramm(['ADPC_vs_LCurve_Results_Ratio_',num2str(ratio),'.mat'],'MetricNames','Metrics','RegMethodNames' ...
+        ,['ADPC vs L-Curve Results for ADPC Ratio: ',(num2str(ratio))])
 end
