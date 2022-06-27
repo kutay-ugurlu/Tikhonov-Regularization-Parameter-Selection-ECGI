@@ -67,7 +67,7 @@ folder = files(1).folder;
 %% Tikhonov Solution loop
 show_plot = 0;
 
-for ratio = [10,15,20]
+for ratio = [10,12.5,15,17.5,20]
     CC_list = zeros(2,l_files);
     RE_list = zeros(2,l_files);
     for i = 1:l_files
