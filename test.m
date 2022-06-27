@@ -7,7 +7,7 @@ A = load('ForwMat_HT.mat','Trf_HT_leads');
 A_inv = A.Trf_HT_leads;
 
 %% Geometry
-GEOM = load('epigeom490corrected.mat');
+GEOM = load('epigeom490sock_closed_aligned_shifted.mat');
 FAC = GEOM.(char(fieldnames(GEOM))).fac;
 PTS = GEOM.(char(fieldnames(GEOM))).pts;
 LV = load('LV.mat');
@@ -15,6 +15,45 @@ LV = LV.LV;
 RV = load('RV.mat');
 RV = RV.RV;
 number_of_nodes = size(PTS,1);
+X = PTS(:,1);
+Y = PTS(:,2);
+Z = PTS(:,3);
+
+addpath('..\Utah Final Geom - Forward\geometries')
+lungs = struct2array(load('lungs_new_shifted.mat'));
+lungs_pts = lungs.pts;
+lungs_fac = lungs.fac;
+x = lungs_pts(:,1);
+y = lungs_pts(:,2);
+z = lungs_pts(:,3);
+torso_tank = struct2array(load('tank771_closed2_outw_struct.mat'));
+torso_pts = torso_tank.pts;
+torso_fac = torso_tank.fac;
+torso_x = torso_pts(:,1);
+torso_y = torso_pts(:,2);
+torso_z = torso_pts(:,3);
+
+hlinks = {};
+f = figure;
+subplot(1,2,1)
+trisurf(FAC,X,Y,Z,zeros(size(X)));
+hold on 
+trisurf(lungs_fac,x,y,z,0.5*ones(size(x)))
+hold on 
+trisurf(torso_fac,torso_x,torso_y,torso_z,ones(size(torso_x)),'FaceAlpha',0.2)
+title('Forward Model')
+subplot(1,2,2)
+trisurf(FAC,X,Y,Z,zeros(size(X)));
+hold on 
+trisurf(torso_fac,torso_x,torso_y,torso_z,ones(size(torso_x)),'FaceAlpha',0.2)
+title('Inverse Model')
+sgtitle('Boundary Element Method')
+
+allAxesInFigure = findall(f,'type','axes');
+hlinks{end+1} = linkprop(allAxesInFigure,{'CameraPosition','CameraUpVector'});
+
+
+
 
 %% Files
 files = dir('..\Bayesian ECGI\Bayesian\TestData\EP\*.mat');
