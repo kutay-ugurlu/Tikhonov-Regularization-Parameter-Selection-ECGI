@@ -31,7 +31,7 @@ g.set_text_options
 g.set_title({Title,['Simulations run on 16 different beats']});
 %%%
 % Do the actual drawing
-figure('Position',[0 100 1800 600]);
+figure('Position',[100 100 850 850]);
 g.stat_boxplot()
 g.draw();
 g.export('file_name',['images/',strrep(strrep(strrep(Title,' ','_'),':',''),'.','_')],'file_type','svg')
