@@ -24,7 +24,8 @@ g=gramm('x',data.(x),'y',data.(y),'Color',categorical(data.(color)));%,'subset',
 g.set_names('x','Metrics','y','Metric Values','color','Method Names');
 g.set_color_options('map','matlab');
 g.set_order_options('x',0,'color',1); %additional category is ignored
-g.set_text_options('base_size',16);
+g.set_text_options('base_size',20);
+g.set_text_options
 % figure('Position',figPos);
 % Set figure title
 g.set_title({Title,['Simulations run on 16 different beats']});
