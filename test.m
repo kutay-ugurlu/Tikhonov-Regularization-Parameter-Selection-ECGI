@@ -1,5 +1,5 @@
 format compact
-close all; clc;
+close all; clc; clear;
 addpath('..\Bayesian ECGI\Bayesian\Geometries\')
 A = load('ForwMat_HLT.mat','Trf_HLT_leads');
 A_for = A.Trf_HLT_leads;
@@ -19,39 +19,42 @@ X = PTS(:,1);
 Y = PTS(:,2);
 Z = PTS(:,3);
 
-addpath('..\Utah Final Geom - Forward\geometries')
-lungs = struct2array(load('lungs_new_shifted.mat'));
-lungs_pts = lungs.pts;
-lungs_fac = lungs.fac;
-x = lungs_pts(:,1);
-y = lungs_pts(:,2);
-z = lungs_pts(:,3);
-torso_tank = struct2array(load('tank771_closed2_outw_struct.mat'));
-torso_pts = torso_tank.pts;
-torso_fac = torso_tank.fac;
-torso_x = torso_pts(:,1);
-torso_y = torso_pts(:,2);
-torso_z = torso_pts(:,3);
 
-hlinks = {};
-f = figure;
-subplot(1,2,1)
-trisurf(FAC,X,Y,Z,zeros(size(X)));
-hold on 
-trisurf(lungs_fac,x,y,z,0.5*ones(size(x)))
-hold on 
-trisurf(torso_fac,torso_x,torso_y,torso_z,ones(size(torso_x)),'FaceAlpha',0.2)
-title('Forward Model')
-subplot(1,2,2)
-trisurf(FAC,X,Y,Z,zeros(size(X)));
-hold on 
-trisurf(torso_fac,torso_x,torso_y,torso_z,ones(size(torso_x)),'FaceAlpha',0.2)
-title('Inverse Model')
-sgtitle('Boundary Element Method')
-
-allAxesInFigure = findall(f,'type','axes');
-hlinks{end+1} = linkprop(allAxesInFigure,{'CameraPosition','CameraUpVector'});
-
+%% Plot geometries
+% 
+% addpath('..\Utah Final Geom - Forward\geometries')
+% lungs = struct2array(load('lungs_new_shifted.mat'));
+% lungs_pts = lungs.pts;
+% lungs_fac = lungs.fac;
+% x = lungs_pts(:,1);
+% y = lungs_pts(:,2);
+% z = lungs_pts(:,3);
+% torso_tank = struct2array(load('tank771_closed2_outw_struct.mat'));
+% torso_pts = torso_tank.pts;
+% torso_fac = torso_tank.fac;
+% torso_x = torso_pts(:,1);
+% torso_y = torso_pts(:,2);
+% torso_z = torso_pts(:,3);
+% 
+% hlinks = {};
+% f = figure;
+% subplot(1,2,1)
+% trisurf(FAC,X,Y,Z,zeros(size(X)));
+% hold on 
+% trisurf(lungs_fac,x,y,z,0.5*ones(size(x)))
+% hold on 
+% trisurf(torso_fac,torso_x,torso_y,torso_z,ones(size(torso_x)),'FaceAlpha',0.2)
+% title('Forward Model')
+% subplot(1,2,2)
+% trisurf(FAC,X,Y,Z,zeros(size(X)));
+% hold on 
+% trisurf(torso_fac,torso_x,torso_y,torso_z,ones(size(torso_x)),'FaceAlpha',0.2)
+% title('Inverse Model')
+% sgtitle('Boundary Element Method')
+% 
+% allAxesInFigure = findall(f,'type','axes');
+% hlinks{end+1} = linkprop(allAxesInFigure,{'CameraPosition','CameraUpVector'});
+% 
 
 
 
@@ -64,7 +67,7 @@ folder = files(1).folder;
 %% Tikhonov Solution loop
 show_plot = 0;
 
-for ratio = [1,10,13,15]
+for ratio = [10,13,15]
     CC_list = zeros(2,l_files);
     RE_list = zeros(2,l_files);
     for i = 1:l_files

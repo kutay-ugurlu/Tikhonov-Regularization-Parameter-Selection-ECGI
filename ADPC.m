@@ -41,7 +41,10 @@ for tk = 1:frames
 
     %% Draw
     
-    f = figure;
+    if tk == 1
+        f = figure;
+    end
+    clf
     plot(fitted_polynome)
     hold on
     plot(log_s)
