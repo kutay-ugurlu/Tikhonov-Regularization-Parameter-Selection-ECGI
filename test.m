@@ -5,6 +5,7 @@ A = load('ForwMat_HLT.mat','Trf_HLT_leads');
 A_for = A.Trf_HLT_leads;
 A = load('ForwMat_HT.mat','Trf_HT_leads');
 A_inv = A.Trf_HT_leads;
+pause(0.5)
 
 %% Geometry
 GEOM = load('epigeom490sock_closed_aligned_shifted.mat');
@@ -68,10 +69,10 @@ l_files = length(files);
 folder = files(1).folder;
 
 %% Tikhonov Solution loop
-show_plot = 0;
+show_plot = 1;
 AT_TABLE_CC_L = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
 AT_TABLE_CC_ADPC = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
-for ratio = [10,12.5,15,17.5,20]
+for ratio = [15]
     CC_list = zeros(2,l_files);
     RE_list = zeros(2,l_files);
     for i = 1:l_files
@@ -87,7 +88,7 @@ for ratio = [10,12.5,15,17.5,20]
         Y = A_for*X_test;
         [Y, std_noise, N] = add_noise(Y, 30, 'SNR');
         [Xtikh, lambda_L] = tikhonov_solution(Y,A_inv);
-        [Xtikh_ADPC, lambda] = ADPC(A_inv,Y, ratio, 0, 1, ['gifs/TestBeat_',num2str(i),'_Ratio_',num2str(ratio),'.gif']);
+        [Xtikh_ADPC, lambda] = ADPC(A_inv,Y, ratio, 0, 0, ['gifs/TestBeat_',num2str(i),'_Ratio_',num2str(ratio),'.gif']);
         temp_struct.Xinv = Xtikh;
         [RE_nodes, ~, ~] = calculate_re(X_test',Xtikh_ADPC');
         CC_rowwise = calculate_cc(X_test',Xtikh_ADPC');
