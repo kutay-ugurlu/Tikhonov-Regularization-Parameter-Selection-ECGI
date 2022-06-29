@@ -19,6 +19,9 @@ X = PTS(:,1);
 Y = PTS(:,2);
 Z = PTS(:,3);
 
+%% Import AT Functions
+addpath('../Bayesian ECGI/AT')
+L = surface_laplacian(GEOM.(char(fieldnames(GEOM))));
 
 %% Plot geometries
 % 
@@ -66,7 +69,8 @@ folder = files(1).folder;
 
 %% Tikhonov Solution loop
 show_plot = 0;
-
+AT_TABLE_CC_L = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
+AT_TABLE_CC_ADPC = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
 for ratio = [10,12.5,15,17.5,20]
     CC_list = zeros(2,l_files);
     RE_list = zeros(2,l_files);
@@ -91,10 +95,16 @@ for ratio = [10,12.5,15,17.5,20]
         [RE_nodes_Lcurve, ~, ~] = calculate_re(X_test',Xtikh');
         CC_rowwise_Lcurve = calculate_cc(X_test',Xtikh');
     
-        % Replace bad lead stats with NaN
+        % Replace bad lead stats with the median
         CC_rowwise(test_bads) = median(CC_rowwise);
         RE_nodes(test_bads) = median(RE_nodes);
     
+        %% AT metrics
+        [CC_AT_L, RE_AT_L] = Generate_AT_CC_RE(X_test,Xtikh, L);
+        [CC_AT_ADPC, RE_AT_ADPC] = Generate_AT_CC_RE(X_test, Xtikh_ADPC, L);
+        AT_TABLE_CC_ADPC.(num2str(ratio)){i} = CC_AT_ADPC;
+        AT_TABLE_CC_L.(num2str(ratio)){i} = CC_AT_L;
+
         if show_plot
             figure
             subplot(1,3,1)
@@ -128,3 +138,5 @@ for ratio = [10,12.5,15,17.5,20]
     draw_gramm(['ADPC_vs_LCurve_Results_Ratio_',num2str(ratio),'.mat'],'MetricNames','Metrics','RegMethodNames' ...
         ,['ADPC vs L-Curve Results for ADPC Ratio: ',(num2str(ratio))])
 end
+table2latex(AT_TABLE_CC_L,'L_Curve_AT_CC')
+table2latex(AT_TABLE_CC_ADPC,'ADPC_AT_CC')
