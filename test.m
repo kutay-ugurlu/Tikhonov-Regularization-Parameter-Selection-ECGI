@@ -71,7 +71,7 @@ folder = files(1).folder;
 show_plot = 0;
 AT_TABLE_CC_L = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
 AT_TABLE_CC_ADPC = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
-for ratio = [10,12.5,15,17.5,20]
+for ratio = [12.5,15,17.5,20]
     CC_list = zeros(2,l_files);
     RE_list = zeros(2,l_files);
     for i = 1:l_files
@@ -87,7 +87,7 @@ for ratio = [10,12.5,15,17.5,20]
         Y = A_for*X_test;
         [Y, std_noise, N] = add_noise(Y, 30, 'SNR');
         [Xtikh, lambda_L] = tikhonov_solution(Y,A_inv);
-        [Xtikh_ADPC, lambda] = ADPC(A_inv,Y, ratio, 0, 0, ['gifs/TestBeat_',num2str(i),'_Ratio_',num2str(ratio),'.gif']);
+        [Xtikh_ADPC, lambda] = ADPC(A_inv,Y, ratio, 0, 1, ['gifs/TestBeat_',num2str(i),'_Ratio_',num2str(ratio),'.gif']);
         temp_struct.Xinv = Xtikh;
         [RE_nodes, ~, ~] = calculate_re(X_test',Xtikh_ADPC');
         CC_rowwise = calculate_cc(X_test',Xtikh_ADPC');
@@ -98,7 +98,9 @@ for ratio = [10,12.5,15,17.5,20]
         % Replace bad lead stats with the median
         CC_rowwise(test_bads) = median(CC_rowwise);
         RE_nodes(test_bads) = median(RE_nodes);
-    
+        CC_rowwise_Lcurve(test_bads) = median(CC_rowwise_Lcurve);
+        RE_nodes_Lcurve(test_bads) = median(RE_nodes_Lcurve);
+
         %% AT metrics
         [CC_AT_L, RE_AT_L] = Generate_AT_CC_RE(X_test,Xtikh, L);
         [CC_AT_ADPC, RE_AT_ADPC] = Generate_AT_CC_RE(X_test, Xtikh_ADPC, L);
