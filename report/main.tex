@@ -39,6 +39,7 @@
 \usepackage{fontawesome5}
 \usepackage{makecell}
 \usepackage{footnote}
+\usepackage{hyperref}
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
@@ -117,7 +118,7 @@ technique for the Tikhonov method}}
 
 \section{Introduction}
 
-Electrocardiographic Imaging (ECGI) is a noninvasive method for reconstructing the epicardial potentials from the body surface potential mapping that can diagnose diseases such as tachycardia \cite{intini2005electrocardiographic} and atrial fibrillation \cite{figuera2016regularization,schuler2017ecg}. The number of measurement non-invasively taken from the torso surface, however, is less than the number of reconstructed cardiac sources that provides satisfactory spatial resolution for the diagnosis. Due to the inherent ill-posedness of this underdetermined problem, utilization of regularization is mandatory to achieve physiologically suitable solutions \cite{milanivc2014assessment}. Tikhonov Regularization is a widely used regularization technique in ECGI community and has been found to outperform the other methods depending on the formulation of the problem \cite*{milanivc2014assessment}. The regularization technique imposes a prior on the inverse problem solution and weights the candidate solutions with the data-fidelity term in the cost function with a regularization parameter $\lambda$. Chamorro-Servent, \textit{et al.}, proposes a new method called Automated Discrete Picard Condition(ADPC) in their study \cite*{chamorro2017improving} to automatically find a suitable regularization parameter $\lambda$. 
+\indent Electrocardiographic Imaging (ECGI) is a noninvasive method for reconstructing the epicardial potentials from the body surface potential mapping that can diagnose diseases such as tachycardia \cite{intini2005electrocardiographic} and atrial fibrillation \cite{figuera2016regularization,schuler2017ecg}. The number of measurement non-invasively taken from the torso surface, however, is less than the number of reconstructed cardiac sources that provides satisfactory spatial resolution for the diagnosis. Due to the inherent ill-posedness of this underdetermined problem, utilization of regularization is mandatory to achieve physiologically suitable solutions \cite{milanivc2014assessment}. Tikhonov Regularization is a widely used regularization technique in ECGI community and has been found to outperform the other methods depending on the formulation of the problem \cite*{milanivc2014assessment}. The regularization technique imposes a prior on the inverse problem solution and weights the candidate solutions with the data-fidelity term in the cost function with a regularization parameter $\lambda$. Chamorro-Servent, \textit{et al.}, proposes a new method called Automated Discrete Picard Condition(ADPC) in their study \cite*{chamorro2017improving} to automatically find a suitable regularization parameter $\lambda$. 
 This project report investigates the idea reported in \textit{Improving the spatial solution of electrocardiographic
 imaging: A new regularization parameter choice technique for the Tikhonov method}~\cite{chamorro2017improving}.  
 \\
@@ -132,10 +133,19 @@ The organization of the report is as follows:
 
 \section{Theory}\label{sec:theory}
 
+\subsection{ECGI Forward Problem}\label{subsec:ecgfor}
 
+\subsection{ECGI Inverse Problem}\label{subsec:ecginv}
+
+\subsection{Tikhonov Regularization}\label{subsec:tikreg}
+
+\subsection{Parameter Choice Techniques}\label{subsec:paramselect}
+
+\section{Implementation}\label{sec:implementation}
 
 
 \section{Results}\label{sec:results}
-\section{Implementation}\label{sec:implementation}
 \section{Results and Discussion}\label{sec:discussion}
+
+\printbibliography
 \end{document}

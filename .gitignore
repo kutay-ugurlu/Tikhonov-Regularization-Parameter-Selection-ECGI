@@ -1,2 +1,12 @@
 ~$*
 *.asv
+*.blg
+*.toc
+*.xml
+*.out
+*.lot
+*.log
+*.bcf
+*.aux
+*.gz
+*.lof

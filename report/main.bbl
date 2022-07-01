@@ -1,0 +1,299 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{intini2005electrocardiographic}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=9950cccc84a0e068c058aaecbca63ad2}{%
+           family={Intini},
+           familyi={I\bibinitperiod},
+           given={Anselma},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2251c5331168415f7ec535e0c95f697e}{%
+           family={Goldstein},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima N},
+           giveni={R\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=dd72cec5a12e940b026fd5eed70e9bd7}{%
+           family={Jia},
+           familyi={J\bibinitperiod},
+           given={Ping},
+           giveni={P\bibinitperiod}}}%
+        {{hash=4775d46dc5ddaf613fe3d3488de4bb08}{%
+           family={Ramanathan},
+           familyi={R\bibinitperiod},
+           given={Charulatha},
+           giveni={C\bibinitperiod}}}%
+        {{hash=9438fe6f9e844dc5f3a6d2d4b0e0f2f3}{%
+           family={Ryu},
+           familyi={R\bibinitperiod},
+           given={Kyungmoo},
+           giveni={K\bibinitperiod}}}%
+        {{hash=a6a50b2dcc3fc048df2223805f52be99}{%
+           family={Giannattasio},
+           familyi={G\bibinitperiod},
+           given={Bartolomeo},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8247333ddb7a230fd169c7d5dfe3b0fe}{%
+           family={Gilkeson},
+           familyi={G\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=536706620565951251a8e4cfd6ee380e}{%
+           family={Stambler},
+           familyi={S\bibinitperiod},
+           given={Bruce\bibnamedelima S},
+           giveni={B\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=276adc2e4dee8bc701375f78f423d8ba}{%
+           family={Brugada},
+           familyi={B\bibinitperiod},
+           given={Pedro},
+           giveni={P\bibinitperiod}}}%
+        {{hash=70c2ca379dab0d4cd08f589105f7c4da}{%
+           family={Stevenson},
+           familyi={S\bibinitperiod},
+           given={William\bibnamedelima G},
+           giveni={W\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{4f2d06f9bc026b745df7a3cf25e3a97e}
+      \strng{fullhash}{906da24010b061425873fafe39d0b6a6}
+      \strng{bibnamehash}{4f2d06f9bc026b745df7a3cf25e3a97e}
+      \strng{authorbibnamehash}{4f2d06f9bc026b745df7a3cf25e3a97e}
+      \strng{authornamehash}{4f2d06f9bc026b745df7a3cf25e3a97e}
+      \strng{authorfullhash}{906da24010b061425873fafe39d0b6a6}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Heart Rhythm}
+      \field{number}{11}
+      \field{title}{Electrocardiographic imaging (ECGI), a novel diagnostic modality used for mapping of focal left ventricular tachycardia in a young athlete}
+      \field{volume}{2}
+      \field{year}{2005}
+      \field{pages}{1250\bibrangedash 1252}
+      \range{pages}{3}
+    \endentry
+    \entry{figuera2016regularization}{article}{}
+      \name{author}{10}{}{%
+        {{hash=9b3a64ae3e36a68d733839e97759dcc5}{%
+           family={Figuera},
+           familyi={F\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+        {{hash=a863d7e75fc63e0768f8c26264ec4542}{%
+           family={Suárez-Gutiérrez},
+           familyi={S\bibinithyphendelim G\bibinitperiod},
+           given={Vı́ctor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=b57b9fa4e74c2cde73b017b809a79e4d}{%
+           family={Hernández-Romero},
+           familyi={H\bibinithyphendelim R\bibinitperiod},
+           given={Ismael},
+           giveni={I\bibinitperiod}}}%
+        {{hash=243dc147b4a368f78ed28a1d22c491c9}{%
+           family={Rodrigo},
+           familyi={R\bibinitperiod},
+           given={Miguel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fb717326cd51f6657144929a691586bc}{%
+           family={Liberos},
+           familyi={L\bibinitperiod},
+           given={Alejandro},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3940c413e7f2826aa5e5a1e650767b0a}{%
+           family={Atienza},
+           familyi={A\bibinitperiod},
+           given={Felipe},
+           giveni={F\bibinitperiod}}}%
+        {{hash=cb5a123cb3de3686b5c2fb00ba474593}{%
+           family={Guillem},
+           familyi={G\bibinitperiod},
+           given={Marı́a\bibnamedelima S},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=be5790cf7827941b1722b7fad961a956}{%
+           family={Barquero-Pérez},
+           familyi={B\bibinithyphendelim P\bibinitperiod},
+           given={Óscar},
+           giveni={Ó\bibinitperiod}}}%
+        {{hash=800fa5fa882c0eb9ada3f28fba625e89}{%
+           family={Climent},
+           familyi={C\bibinitperiod},
+           given={Andreu\bibnamedelima M},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=20a84d0d00cc2f1eb8a7f37af6f80155}{%
+           family={Alonso-Atienza},
+           familyi={A\bibinithyphendelim A\bibinitperiod},
+           given={Felipe},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Frontiers Media SA}%
+      }
+      \strng{namehash}{11ca0e5732252b1dc5c6c1ce60445dd9}
+      \strng{fullhash}{d136c50541fbedf98f40defbacbe25e9}
+      \strng{bibnamehash}{11ca0e5732252b1dc5c6c1ce60445dd9}
+      \strng{authorbibnamehash}{11ca0e5732252b1dc5c6c1ce60445dd9}
+      \strng{authornamehash}{11ca0e5732252b1dc5c6c1ce60445dd9}
+      \strng{authorfullhash}{d136c50541fbedf98f40defbacbe25e9}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in physiology}
+      \field{title}{Regularization techniques for ECG imaging during atrial fibrillation: a computational study}
+      \field{volume}{7}
+      \field{year}{2016}
+      \field{pages}{466}
+      \range{pages}{1}
+    \endentry
+    \entry{schuler2017ecg}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=777b01060c8d567a340cef1d8dd82281}{%
+           family={Schuler},
+           familyi={S\bibinitperiod},
+           given={Steffen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d61c65eb7e425c55b4ca4fb610fca3f8}{%
+           family={Potyagaylo},
+           familyi={P\bibinitperiod},
+           given={Danila},
+           giveni={D\bibinitperiod}}}%
+        {{hash=fe73bebba6d382e2d34f9bcce615190e}{%
+           family={Dössel},
+           familyi={D\bibinitperiod},
+           given={Olaf},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{b07750215d3c976b527d7948d2ea8633}
+      \strng{fullhash}{b07750215d3c976b527d7948d2ea8633}
+      \strng{bibnamehash}{b07750215d3c976b527d7948d2ea8633}
+      \strng{authorbibnamehash}{b07750215d3c976b527d7948d2ea8633}
+      \strng{authornamehash}{b07750215d3c976b527d7948d2ea8633}
+      \strng{authorfullhash}{b07750215d3c976b527d7948d2ea8633}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2017 Computing in Cardiology (CinC)}
+      \field{title}{ECG imaging of simulated atrial fibrillation: imposing epi-endocardial similarity facilitates the reconstruction of transmembrane voltages}
+      \field{year}{2017}
+      \field{pages}{1\bibrangedash 4}
+      \range{pages}{4}
+    \endentry
+    \entry{milanivc2014assessment}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{4}{}{%
+        {{hash=58861dd708df1fc2f931e6c2f88e3ef4}{%
+           family={Milanič},
+           familyi={M\bibinitperiod},
+           given={Matija},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2260f68cd378ef5cd7a9c46a5240f96a}{%
+           family={Jazbinšek},
+           familyi={J\bibinitperiod},
+           given={Vojko},
+           giveni={V\bibinitperiod}}}%
+        {{hash=8c1deb97ecd3ebcb9bf52a02f7c8832c}{%
+           family={MacLeod},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima S},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=767edf0ac71006d9531c1fb7fee07eb4}{%
+           family={Brooks},
+           familyi={B\bibinitperiod},
+           given={Dana\bibnamedelima H},
+           giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{68ff5c567baf8d3eedaf64f7219f75b2}
+      \strng{fullhash}{b174f3fe0a6c3c7c1f2bba491a8c017a}
+      \strng{bibnamehash}{3110576aaa7a3c86382e8363885f8ad2}
+      \strng{authorbibnamehash}{3110576aaa7a3c86382e8363885f8ad2}
+      \strng{authornamehash}{68ff5c567baf8d3eedaf64f7219f75b2}
+      \strng{authorfullhash}{b174f3fe0a6c3c7c1f2bba491a8c017a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of electrocardiology}
+      \field{number}{1}
+      \field{title}{Assessment of regularization techniques for electrocardiographic imaging}
+      \field{volume}{47}
+      \field{year}{2014}
+      \field{pages}{20\bibrangedash 28}
+      \range{pages}{9}
+    \endentry
+    \entry{chamorro2017improving}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=5017ac7c64d0d867d388e9fdc43650d8}{%
+           family={Chamorro-Servent},
+           familyi={C\bibinithyphendelim S\bibinitperiod},
+           given={Judit},
+           giveni={J\bibinitperiod}}}%
+        {{hash=0c5790a45de4061975c2f233dc97b9cd}{%
+           family={Dubois},
+           familyi={D\bibinitperiod},
+           given={Rémi},
+           giveni={R\bibinitperiod}}}%
+        {{hash=d9af38439266e532a3e39987fa00c90f}{%
+           family={Potse},
+           familyi={P\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2e744b07925aca66726db5946dbd6180}{%
+           family={Coudière},
+           familyi={C\bibinitperiod},
+           given={Yves},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{90596508b31d7cee2f3c5813c6b6e949}
+      \strng{fullhash}{c6a87e01d15899d83fba0aa297c5b558}
+      \strng{bibnamehash}{c6a87e01d15899d83fba0aa297c5b558}
+      \strng{authorbibnamehash}{c6a87e01d15899d83fba0aa297c5b558}
+      \strng{authornamehash}{90596508b31d7cee2f3c5813c6b6e949}
+      \strng{authorfullhash}{c6a87e01d15899d83fba0aa297c5b558}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Conference on Functional Imaging and Modeling of the Heart}
+      \field{title}{Improving the spatial solution of electrocardiographic imaging: a new regularization parameter choice technique for the tikhonov method}
+      \field{year}{2017}
+      \field{pages}{289\bibrangedash 300}
+      \range{pages}{12}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

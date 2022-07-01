@@ -5,7 +5,7 @@ A = load('ForwMat_HLT.mat','Trf_HLT_leads');
 A_for = A.Trf_HLT_leads;
 A = load('ForwMat_HT.mat','Trf_HT_leads');
 A_inv = A.Trf_HT_leads;
-pause(0.5)
+pause(0.1)
 
 %% Geometry
 GEOM = load('epigeom490sock_closed_aligned_shifted.mat');
@@ -72,7 +72,7 @@ folder = files(1).folder;
 show_plot = 1;
 AT_TABLE_CC_L = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
 AT_TABLE_CC_ADPC = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
-for ratio = [15]
+for ratio = [10,12.5,15,17.5,20]
     CC_list = zeros(2,l_files);
     RE_list = zeros(2,l_files);
     for i = 1:l_files
