@@ -127,13 +127,51 @@ The organization of the report is as follows:
 \begin{itemize}
     \item The problem and the proposed solutions to it are briefly introduced in this section.
     \item The background of ECGI and theory of the regarding inverse problem are discussed in Section \nameref{sec:theory}.
-    \item The methods, datasets and neural network architectures used in the implementation of the original paper along with modifications introduced in the speech emotion recognition tasks can be seen in Section \nameref{sec:implementation}.
+    \item The methods, datasets and the details regarding the implementation of proposed methods for both the original study and the reimplemented version with another experimental setup are shared in the \nameref{sec:implementation} section.
     \item Section \nameref{sec:discussion} is left for the presentation of the results from conducted experiments along with the original results presented in the study and the discussion comparing the performances of the related method.
 \end{itemize}
 
+\clearpage
+
 \section{Theory}\label{sec:theory}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/The-illustration-of-forward-and-inverse-ECG-problems.png}
+    \caption{ECGI Forward and Inverse Problem}\label{fig:ECG}
+\end{figure}
+
 \subsection{ECGI Forward Problem}\label{subsec:ecgfor}
+
+\indent ECGI Forward problem is constructing a model for calculating the body surface potential mapping(BSPM) from the given heart potentials, \textit{i.e.}, the epicardial voltage distribution, shown by the right-side arrow in Figure \ref{fig:ECG}. One can come up with different forward models for the ECGI problem. The authors of the original study utilized Method of Fundamental Solutions(MFS) method to derive the forward model, whereas Boundary Element Method(BEM) is utilized for the re-implementation. 
+
+\subsubsection*{Method of Fundemental Solutions}
+\indent MFS is meshless approach adapted to ECGI. In this method, the measurements are expressed as a linear combination of fundamental solutions to the LapLace equation. It is formulated as
+
+\begin{equation}
+    \Phi (x) = a_0 + \sum\limits_{j=1}^{N_s} f(x-y_j)a_j
+    \label{eq:MFS}
+\end{equation}
+
+where $x \in \Omega$ where $\Omega$ is the measurement domain (torso) and $y_j$'s are the $N_s$ locations of the sources ($y_j \notin \Omega$) (heart). In this formulation $f$ stands for the fundemental solution to LapLace equation in Eqn. \ref{eq:FundSoln}:
+
+\begin{equation}
+    f(r) = \frac{1}{4\pi} \frac{1}{|r|}
+    \label{eq:FundSoln}
+\end{equation}
+
+After the discretization of the domain on torso measurement locations, the following system matrix M can be obtained:
+
+\centering{
+$M = \begin{bmatrix} 
+    1 & f(r_{11}) & \dots & f(r_1 N_S) \\
+    \vdots & \vdots  & \ddots & \vdots\\
+    1 &  f(r_{N_T1}) & \dots & f(r_{N_T} N_S) \\ 
+    0 & \partial_{n_1}f(r_{11}) & \dots & \partial_{n_1}f(r_1 N_S) \\
+    \vdots & \vdots  & \ddots & \vdots\\
+    0 &  \partial_{n_{N_T}}f(r_{N_T1}) & \dots & \partial_{n_{N_T}}f(r_{N_T} N_S)     
+    \end{bmatrix}$
+}
 
 \subsection{ECGI Inverse Problem}\label{subsec:ecginv}
 
