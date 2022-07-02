@@ -293,6 +293,310 @@
       \field{pages}{289\bibrangedash 300}
       \range{pages}{12}
     \endentry
+    \entry{wang2006application}{article}{}
+      \name{author}{2}{}{%
+        {{hash=97ea4addef0a6948a5af2dcd3a97e675}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yong},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=c519f67ef1a313e3ee70a0b99d74156d}{%
+           family={Rudy},
+           familyi={R\bibinitperiod},
+           given={Yoram},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{37441fcd5c41128d23e5c7b90d452760}
+      \strng{fullhash}{37441fcd5c41128d23e5c7b90d452760}
+      \strng{bibnamehash}{37441fcd5c41128d23e5c7b90d452760}
+      \strng{authorbibnamehash}{37441fcd5c41128d23e5c7b90d452760}
+      \strng{authornamehash}{37441fcd5c41128d23e5c7b90d452760}
+      \strng{authorfullhash}{37441fcd5c41128d23e5c7b90d452760}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of biomedical engineering}
+      \field{number}{8}
+      \field{title}{Application of the method of fundamental solutions to potential-based inverse electrocardiography}
+      \field{volume}{34}
+      \field{year}{2006}
+      \field{pages}{1272\bibrangedash 1288}
+      \range{pages}{17}
+    \endentry
+    \entry{4536071}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4a0f1e90e4ffca44067adc941e9a59e4}{%
+           family={Stenroos*},
+           familyi={S\bibinitperiod},
+           given={Matti},
+           giveni={M\bibinitperiod}}}%
+        {{hash=501d816c0004d4f33cbde0458589cd29}{%
+           family={Haueisen},
+           familyi={H\bibinitperiod},
+           given={Jens},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b253871c53d14bf4389b087339b1e79d}
+      \strng{fullhash}{b253871c53d14bf4389b087339b1e79d}
+      \strng{bibnamehash}{b253871c53d14bf4389b087339b1e79d}
+      \strng{authorbibnamehash}{b253871c53d14bf4389b087339b1e79d}
+      \strng{authornamehash}{b253871c53d14bf4389b087339b1e79d}
+      \strng{authorfullhash}{b253871c53d14bf4389b087339b1e79d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Biomedical Engineering}
+      \field{number}{9}
+      \field{title}{Boundary Element Computations in the Forward and Inverse Problems of Electrocardiography: Comparison of Collocation and Galerkin Weightings}
+      \field{volume}{55}
+      \field{year}{2008}
+      \field{pages}{2124\bibrangedash 2133}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/TBME.2008.923913
+      \endverb
+    \endentry
+    \entry{Cunha13}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=619b3db993b106e925385c60b504998c}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Eric.\bibnamedelimi L.},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{3}{%
+        {Department of Electrical}%
+        {Computer Engineering & The Center for Subsurface Sensing}%
+        {Imaging System}%
+      }
+      \strng{namehash}{619b3db993b106e925385c60b504998c}
+      \strng{fullhash}{619b3db993b106e925385c60b504998c}
+      \strng{bibnamehash}{619b3db993b106e925385c60b504998c}
+      \strng{authorbibnamehash}{619b3db993b106e925385c60b504998c}
+      \strng{authornamehash}{619b3db993b106e925385c60b504998c}
+      \strng{authorfullhash}{619b3db993b106e925385c60b504998c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{title}{Fundamental of Inverse Problems}
+      \field{year}{2003}
+      \field{pages}{115}
+      \range{pages}{1}
+    \endentry
+    \entry{colli1985mathematical}{article}{}
+      \name{author}{7}{}{%
+        {{hash=ef8dbf9985ee7867bdc38beca133feb5}{%
+           family={Colli-Franzone},
+           familyi={C\bibinithyphendelim F\bibinitperiod},
+           given={P},
+           giveni={P\bibinitperiod}}}%
+        {{hash=1613169c5564506009f5a2bde85c18be}{%
+           family={Guerri},
+           familyi={G\bibinitperiod},
+           given={L},
+           giveni={L\bibinitperiod}}}%
+        {{hash=4ca42704c538676249026ac22d2e2225}{%
+           family={Tentoni},
+           familyi={T\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+        {{hash=7b2cf2863fcba2b98b45bb1896bcbb9d}{%
+           family={Viganotti},
+           familyi={V\bibinitperiod},
+           given={C},
+           giveni={C\bibinitperiod}}}%
+        {{hash=de1b18777bf321dbb5e6df154d0ad83d}{%
+           family={Baruffi},
+           familyi={B\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+        {{hash=13fecb1456aaf2df07ca82601535d287}{%
+           family={Spaggiari},
+           familyi={S\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+        {{hash=41b41c249b25f4c1ad310c9d64360df7}{%
+           family={Taccardi},
+           familyi={T\bibinitperiod},
+           given={B},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{9231bcfde2c47e784b55a18866971c28}
+      \strng{fullhash}{b52a4f6be3ae164c130732fda16f9b5c}
+      \strng{bibnamehash}{9231bcfde2c47e784b55a18866971c28}
+      \strng{authorbibnamehash}{9231bcfde2c47e784b55a18866971c28}
+      \strng{authornamehash}{9231bcfde2c47e784b55a18866971c28}
+      \strng{authorfullhash}{b52a4f6be3ae164c130732fda16f9b5c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematical Biosciences}
+      \field{number}{1-2}
+      \field{title}{A mathematical procedure for solving the inverse potential problem of electrocardiography. Analysis of the time-space accuracy from in vitro experimental data}
+      \field{volume}{77}
+      \field{year}{1985}
+      \field{pages}{353\bibrangedash 396}
+      \range{pages}{44}
+    \endentry
+    \entry{hansen1993use}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f7cf8286cb9c038743a3eec9708f00d5}{%
+           family={Hansen},
+           familyi={H\bibinitperiod},
+           given={Per\bibnamedelima Christian},
+           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=a6848a947cddc0f2bda7b78e0b83ef99}{%
+           family={O’Leary},
+           familyi={O\bibinitperiod},
+           given={Dianne\bibnamedelima Prost},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {SIAM}%
+      }
+      \strng{namehash}{6d04c77556afd1cb83eeba2129a3abed}
+      \strng{fullhash}{6d04c77556afd1cb83eeba2129a3abed}
+      \strng{bibnamehash}{6d04c77556afd1cb83eeba2129a3abed}
+      \strng{authorbibnamehash}{6d04c77556afd1cb83eeba2129a3abed}
+      \strng{authornamehash}{6d04c77556afd1cb83eeba2129a3abed}
+      \strng{authorfullhash}{6d04c77556afd1cb83eeba2129a3abed}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SIAM journal on scientific computing}
+      \field{number}{6}
+      \field{title}{The use of the L-curve in the regularization of discrete ill-posed problems}
+      \field{volume}{14}
+      \field{year}{1993}
+      \field{pages}{1487\bibrangedash 1503}
+      \range{pages}{17}
+    \endentry
+    \entry{krawczyk2007regularization}{article}{}
+      \name{author}{2}{}{%
+        {{hash=712e11ce05917e5be5885ca654bcd3df}{%
+           family={Krawczyk-StanDo},
+           familyi={K\bibinithyphendelim S\bibinitperiod},
+           given={Dorota},
+           giveni={D\bibinitperiod}}}%
+        {{hash=eabb3d68e81ab6ec8fe0fceac8c6553d}{%
+           family={Rudnicki},
+           familyi={R\bibinitperiod},
+           given={Marek},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {De Gruyter Poland}%
+      }
+      \strng{namehash}{35ceb58604afc35e4dfa5c1e37710f9b}
+      \strng{fullhash}{35ceb58604afc35e4dfa5c1e37710f9b}
+      \strng{bibnamehash}{35ceb58604afc35e4dfa5c1e37710f9b}
+      \strng{authorbibnamehash}{35ceb58604afc35e4dfa5c1e37710f9b}
+      \strng{authornamehash}{35ceb58604afc35e4dfa5c1e37710f9b}
+      \strng{authorfullhash}{35ceb58604afc35e4dfa5c1e37710f9b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Applied Mathematics and Computer Science}
+      \field{number}{2}
+      \field{title}{Regularization parameter selection in discrete ill-posed problems--The use of the U-Curve}
+      \field{volume}{17}
+      \field{year}{2007}
+      \field{pages}{157}
+      \range{pages}{1}
+    \endentry
+    \entry{ten2004model}{article}{}
+      \name{author}{4}{}{%
+        {{hash=ab1926a9e6e810685c935062a9449059}{%
+           family={Tusscher},
+           familyi={T\bibinitperiod},
+           given={Kirsten\bibnamedelima HWJ},
+           giveni={K\bibinitperiod\bibinitdelim H\bibinitperiod},
+           prefix={ten},
+           prefixi={t\bibinitperiod}}}%
+        {{hash=b1d28206d86ce2357ac0ec6cad681c32}{%
+           family={Noble},
+           familyi={N\bibinitperiod},
+           given={Denis},
+           giveni={D\bibinitperiod}}}%
+        {{hash=c21234de5a5899b37d4f957a273c6391}{%
+           family={Noble},
+           familyi={N\bibinitperiod},
+           given={Peter-John},
+           giveni={P\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=bafb516d8584742edf881030eb74e73d}{%
+           family={Panfilov},
+           familyi={P\bibinitperiod},
+           given={Alexander\bibnamedelima V},
+           giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physiological Society}%
+      }
+      \strng{namehash}{f03ab5f65df70d20c093c86e36de6419}
+      \strng{fullhash}{18dd549d42cb0431d5c16a46222f4b89}
+      \strng{bibnamehash}{18dd549d42cb0431d5c16a46222f4b89}
+      \strng{authorbibnamehash}{18dd549d42cb0431d5c16a46222f4b89}
+      \strng{authornamehash}{f03ab5f65df70d20c093c86e36de6419}
+      \strng{authorfullhash}{18dd549d42cb0431d5c16a46222f4b89}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Journal of Physiology-Heart and Circulatory Physiology}
+      \field{title}{A model for human ventricular tissue}
+      \field{year}{2004}
+    \endentry
+    \entry{macleod1995electrocardiographic}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=8c1deb97ecd3ebcb9bf52a02f7c8832c}{%
+           family={MacLeod},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima S},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=41b41c249b25f4c1ad310c9d64360df7}{%
+           family={Taccardi},
+           familyi={T\bibinitperiod},
+           given={B},
+           giveni={B\bibinitperiod}}}%
+        {{hash=3f100be014ea6cd5518ac551ef50f002}{%
+           family={Lux},
+           familyi={L\bibinitperiod},
+           given={RL},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c116e7674abc3faf6b001cb8e6121d41}
+      \strng{fullhash}{c116e7674abc3faf6b001cb8e6121d41}
+      \strng{bibnamehash}{c116e7674abc3faf6b001cb8e6121d41}
+      \strng{authorbibnamehash}{c116e7674abc3faf6b001cb8e6121d41}
+      \strng{authornamehash}{c116e7674abc3faf6b001cb8e6121d41}
+      \strng{authorfullhash}{c116e7674abc3faf6b001cb8e6121d41}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of 17th international conference of the engineering in medicine and biology society}
+      \field{title}{Electrocardiographic mapping in a realistic torso tank preparation}
+      \field{volume}{1}
+      \field{year}{1995}
+      \field{pages}{245\bibrangedash 246}
+      \range{pages}{2}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
