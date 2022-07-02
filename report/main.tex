@@ -162,16 +162,16 @@ where $x \in \Omega$ where $\Omega$ is the measurement domain (torso) and $y_j$'
 
 After the discretization of the domain on torso measurement locations, the following system matrix M can be obtained:
 
-\centering{
-$M = \begin{bmatrix} 
-    1 & f(r_{11}) & \dots & f(r_1 N_S) \\
-    \vdots & \vdots  & \ddots & \vdots\\
-    1 &  f(r_{N_T1}) & \dots & f(r_{N_T} N_S) \\ 
-    0 & \partial_{n_1}f(r_{11}) & \dots & \partial_{n_1}f(r_1 N_S) \\
-    \vdots & \vdots  & \ddots & \vdots\\
-    0 &  \partial_{n_{N_T}}f(r_{N_T1}) & \dots & \partial_{n_{N_T}}f(r_{N_T} N_S)     
-    \end{bmatrix}$
-}
+\begin{center}
+    $M = \begin{bmatrix} 
+        1 & f(r_{11}) & \dots & f(r_1 N_S) \\
+        \vdots & \vdots  & \ddots & \vdots\\
+        1 &  f(r_{N_T1}) & \dots & f(r_{N_T} N_S) \\ 
+        0 & \partial_{n_1}f(r_{11}) & \dots & \partial_{n_1}f(r_1 N_S) \\
+        \vdots & \vdots  & \ddots & \vdots\\
+        0 &  \partial_{n_{N_T}}f(r_{N_T1}) & \dots & \partial_{n_{N_T}}f(r_{N_T} N_S)     
+        \end{bmatrix}$    
+\end{center}
 
 \subsection{ECGI Inverse Problem}\label{subsec:ecginv}
 
