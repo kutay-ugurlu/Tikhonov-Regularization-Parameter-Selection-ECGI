@@ -70,8 +70,13 @@ folder = files(1).folder;
 
 %% Tikhonov Solution loop
 show_plot = 0;
-AT_TABLE_CC_L = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
-AT_TABLE_CC_ADPC = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
+var_names = {'Test Beat ID','10', '12.5', '15', '17.5', '20'};
+AT_TABLE_CC_L = cell2table(cell(17,6), 'VariableNames', var_names );
+AT_TABLE_CC_ADPC = cell2table(cell(17,6), 'VariableNames', var_names);
+
+AT_TABLE_CC_L.("Test Beat ID") = [1:17]';
+AT_TABLE_CC_ADPC.("Test Beat ID") = [1:17]';
+
 for ratio = [10,12.5,15,17.5,20]
     CC_list = zeros(2,l_files);
     RE_list = zeros(2,l_files);
@@ -130,6 +135,13 @@ for ratio = [10,12.5,15,17.5,20]
         RE_list(1,i) = median(RE_nodes);
         RE_list(2,i) = median(RE_nodes_Lcurve);
     end
+
+    temp_name = num2str(ratio);
+    data = cell2mat(AT_TABLE_CC_L.(temp_name));
+    AT_TABLE_CC_L.(temp_name){end} = median(data);
+    data = cell2mat(AT_TABLE_CC_ADPC.(temp_name));
+    AT_TABLE_CC_ADPC.(temp_name){end} = median(data);
+
     GrammStruct = struct();
     GrammStruct.Metrics = [CC_list(:) ; RE_list(:)];
     GrammStruct.RegMethodNames = repmat(repelem(["ADPC";"L-Curve"],l_files,1),2,1);
@@ -140,6 +152,8 @@ for ratio = [10,12.5,15,17.5,20]
     save(['ADPC_vs_LCurve_Results_Ratio_',num2str(ratio),'.mat'],"GrammStruct")
     draw_gramm(['ADPC_vs_LCurve_Results_Ratio_',num2str(ratio),'.mat'],'MetricNames','Metrics','RegMethodNames' ...
         ,['ADPC vs L-Curve Results for ADPC Ratio: ',(num2str(ratio))])
+    table2latex(AT_TABLE_CC_L,['L_Curve_AT_CC_Ratio_',num2str(ratio)])
+    table2latex(AT_TABLE_CC_ADPC,['ADPC_AT_CC_Ratio_',num2str(ratio)])
+
 end
-table2latex(AT_TABLE_CC_L,'L_Curve_AT_CC')
-table2latex(AT_TABLE_CC_ADPC,'ADPC_AT_CC')
+

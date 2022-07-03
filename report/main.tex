@@ -256,7 +256,7 @@ In ill-posed problems such as ECGI, there arises a point where singular values d
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{../images/SA_Node.png}
+\includegraphics[width=0.5\textwidth]{../images/SA_Node.png}
 \caption{Electrical anatomy of the heart}\label{fig:SANODE}
 \end{figure}
 
@@ -290,9 +290,7 @@ U-Curve is relatively newer method that was proposed in \cite*{krawczyk2007regul
 
 This cost function results in a U shaped function where the sides of the curve are where either the residual or the constraint term dominates. The minimum of the curve is chosen as the optimum regularization parameter. 
 
-\newpage
-
-\subsection{Automated Discrete Picard Condition (ADPC)}
+\subsection{Automated Discrete Picard Condition (ADPC)} \label{subsec:ADPC}
 
 Chamorro \textit{et al.} proposes an automated regularization parameter selection technique in \cite*{chamorro2017improving}. Using the approach mention in \nameref{subsec:DPC} section, the steps of the proposed algorithm is as follows: 
 
@@ -345,6 +343,8 @@ In the reimplementation of the study, BEM is used to construct the forward model
     \caption{Forward and Inverse models generated with Boundary Element Method}\label{fig:mylabel}
 \end{figure}
     
+\newpage
+
 \subsection{Implementation of the Inverse Solution Computation}
 
 To compute the inverse solution, Tikhonov-SVD expression given in \eqref{eq:tikhsvd} is utilized by processing the measurement matrix frame by frame with different forward and inverse models mentioned in \nameref{subsec:modelgeneration}, both in the original study and reimplemented version. In the reimplementation, I have modified the code from the codebase of \href{http://hrl.eee.metu.edu.tr/}{METU Heart Research Laboratory \faExternalLink*} for L-Curve optimization, noise generation which also includes the activation time generation from UTAH SCI\cite*{ActDetect}, and implemented all the remaining software including ADPC method and visualizations on MATLAB R2021b (The Mathworks, Inc., Massachusetts, United States). For visualizations, Gramm \cite*{morel2018gramm} is used. 
@@ -353,9 +353,9 @@ To compute the inverse solution, Tikhonov-SVD expression given in \eqref{eq:tikh
 
 The line search conducted for L-curve choice of regularization parameter is conducted from $min(\sigma_1\cdot 16*\epsilon, \sigma_{smallest})$ to the maximum singular value $\sigma_i$ for 200 points in an exponential manner, and L-Curve is formed. Then the point having the maximum curvature is computed as described in \cite*{hansen1993use}.
 
-\subsection{}
+\subsection{New Parameter: Ratio}
 
-\newpage
+In the experimental setup with the dataset from \cite*{macleod1995electrocardiographic} and BEM forward model, logarithm of the sorted singular values was always lower than the fitted polynomial, which can be observed \href{https://github.com/kutay-ugurlu/Tikhonov-Regularization-Parameter-Selection-ECGI/tree/master}{from the gif presented here \faExternalLink*}. Chamorro \textit{et al.} state that the empirical lower threshold of DPC may be differently adopted for other approaches \cite*{chamorro2017improving}. Hence, a new hyperparameter called \textbf{$\rho:$ ratio} is introduced to the algorithm, and $\frac{|u_i^Tb|}{\rho}$ is fitted to the aforesaid polynomial in the procedure described in \nameref{subsec:ADPC}. 
 
 \section{Results and Discussion}\label{sec:discussion}
 
@@ -371,31 +371,39 @@ In both implementations of ADPC, Pearson's Correlation Coefficient and Relative 
     Pearson's Correlation Coefficient: \frac{n\sum x \hat{x} - n \sum x \sum y}{\sqrt{n\sum x^2 - (\sum x)^2}\sqrt{n\sum {\hat{x}}^2 - (\sum \hat{x})^2}}
 \end{equation}
 
+The authors used the median-upper quartile-lower quartile representation for the metrics for in-silico data consisting single site pacing simulations and spiral wave simulations. 
+
+\newpage
+
 \subsection{Original Study}
 
 \begin{table}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{../images/RecTable.png}
+\includegraphics[width=0.7\textwidth]{../images/RecTable.png}
 \caption{\label{tab:RecTab}Reconstruction comparisons from the original paper}
 \end{table}
 
+When the correlation coefficient for the reconstructions are inspected in Table \ref{tab:RecTab}, ADPC seems to outperform the remaining techniques by 6\% in average, showing the importance of the regularization parameter choice technique. Although REs are not much effected for the SSWs, they decreased by 21\% wwith respect to the CRESO method. All in all, the method is able to achieve the minimum relative error metric among the techniques utilized.
+
 \begin{table}[h]
     \centering
-    \includegraphics[width=0.6\textwidth, height = 0.3\textwidth]{../images/ATTable.png}
+    \includegraphics[width=0.5\textwidth, height = 0.2\textwidth]{../images/ATTable.png}
     \caption{\label{tab:ATtab}Activation Time comparisons from the original paper}
 \end{table}
-
-The authors used the median-upper quartile-lower quartile representation for the metrics for in-silico data consisting single site pacing simulations and spiral wave simulations. When the correlation coefficient for the reconstructions are inspected in Table \ref{tab:RecTab}, ADPC seems to outperform the remaining techniques by 6\% in average, showing the importance of the regularization parameter choice technique. Similarly, the method is able to achieve the minimum relative error metric among the techniques utilized.
 
 When Table \ref{tab:ATtab} is inspected, it is immediately observed that CC values of the AT maps provided by the L-curve solution is marked as NA. The authors state that L-curve outputs a large regularization parameter $\lambda$, resulting in an over-regularized solution. This phenomenon can be observed in Figure \ref{fig:versus} presented in \cite*{chamorro2017improving}.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{../images/Versus.png}
+\includegraphics[width=0.5\textwidth]{../images/Versus.png}
 \caption{Regularization parameters found by different methods on Picard Plot}\label{fig:versus}
 \end{figure}
 
 In this Picard plot, it is observed that $\frac{|u_i^Tb|}{\sigma_i}$ starts to grow after SV index $i=~250$ and DPC starts to fail. Although ADPC seems to find a really closer index to this point, the index of the $\lambda$ parameter given by the L-curve is approximately 10, which shows the over-regularization by this method. 
+
+\subsection{Reimplementation results}
+
+\subsubsection*{Ratio:$\rho$}
 
 \newpage
 \printbibliography
