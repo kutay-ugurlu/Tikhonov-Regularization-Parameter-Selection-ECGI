@@ -390,6 +390,57 @@
       \field{pages}{115}
       \range{pages}{1}
     \endentry
+    \entry{erem2013using}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{5}{}{%
+        {{hash=34ab16897b07f3b818ee8e9e32876a1d}{%
+           family={Erem},
+           familyi={E\bibinitperiod},
+           given={Burak},
+           giveni={B\bibinitperiod}}}%
+        {{hash=766020a4ce086d3e86f5e4b13d156f08}{%
+           family={Coll-Font},
+           familyi={C\bibinithyphendelim F\bibinitperiod},
+           given={Jaume},
+           giveni={J\bibinitperiod}}}%
+        {{hash=81da167853ba3cc1f6ce6f611422283c}{%
+           family={Orellana},
+           familyi={O\bibinitperiod},
+           given={Ramon\bibnamedelima Martinez},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=35281daa62df52b8a6fa0005ed8a31f1}{%
+           family={Št},
+           familyi={Š\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod}}}%
+        {{hash=767edf0ac71006d9531c1fb7fee07eb4}{%
+           family={Brooks},
+           familyi={B\bibinitperiod},
+           given={Dana\bibnamedelima H},
+           giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{a521666ec1072b37a4a9f472b814fa80}
+      \strng{fullhash}{1ece4c5d979345c6f8e632bb8dc1377f}
+      \strng{bibnamehash}{8629e3945e47e09dca2426a23e3faf9d}
+      \strng{authorbibnamehash}{8629e3945e47e09dca2426a23e3faf9d}
+      \strng{authornamehash}{a521666ec1072b37a4a9f472b814fa80}
+      \strng{authorfullhash}{1ece4c5d979345c6f8e632bb8dc1377f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE transactions on medical imaging}
+      \field{number}{3}
+      \field{title}{Using transmural regularization and dynamic modeling for noninvasive cardiac potential imaging of endocardial pacing with imprecise thoracic geometry}
+      \field{volume}{33}
+      \field{year}{2013}
+      \field{pages}{726\bibrangedash 738}
+      \range{pages}{13}
+    \endentry
     \entry{colli1985mathematical}{article}{}
       \name{author}{7}{}{%
         {{hash=ef8dbf9985ee7867bdc38beca133feb5}{%
@@ -596,6 +647,63 @@
       \field{year}{1995}
       \field{pages}{245\bibrangedash 246}
       \range{pages}{2}
+    \endentry
+    \entry{ActDetect}{software}{}
+      \name{author}{2}{}{%
+        {{hash=db79dd7841ef65bfe4383819202ec111}{%
+           family={Computing},
+           familyi={C\bibinitperiod},
+           given={The\bibnamedelima Scientific},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=abac075d8143cfe577696a112fa4b857}{%
+           family={Institue},
+           familyi={I\bibinitperiod},
+           given={Imaging},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{939529824aa41769019f35bd2e6a48c8}
+      \strng{fullhash}{939529824aa41769019f35bd2e6a48c8}
+      \strng{bibnamehash}{939529824aa41769019f35bd2e6a48c8}
+      \strng{authorbibnamehash}{939529824aa41769019f35bd2e6a48c8}
+      \strng{authornamehash}{939529824aa41769019f35bd2e6a48c8}
+      \strng{authorfullhash}{939529824aa41769019f35bd2e6a48c8}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ACtivation Time Detection}
+      \verb{urlraw}
+      \verb https://www.sci.utah.edu/software/scirun.html
+      \endverb
+      \verb{url}
+      \verb https://www.sci.utah.edu/software/scirun.html
+      \endverb
+    \endentry
+    \entry{morel2018gramm}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f9c1bdf3d3e015b9cac271c8cb3086e0}{%
+           family={Morel},
+           familyi={M\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9c1bdf3d3e015b9cac271c8cb3086e0}
+      \strng{fullhash}{f9c1bdf3d3e015b9cac271c8cb3086e0}
+      \strng{bibnamehash}{f9c1bdf3d3e015b9cac271c8cb3086e0}
+      \strng{authorbibnamehash}{f9c1bdf3d3e015b9cac271c8cb3086e0}
+      \strng{authornamehash}{f9c1bdf3d3e015b9cac271c8cb3086e0}
+      \strng{authorfullhash}{f9c1bdf3d3e015b9cac271c8cb3086e0}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Open Source Software}
+      \field{number}{23}
+      \field{title}{Gramm: grammar of graphics plotting in Matlab}
+      \field{volume}{3}
+      \field{year}{2018}
+      \field{pages}{568}
+      \range{pages}{1}
     \endentry
   \enddatalist
 \endrefsection

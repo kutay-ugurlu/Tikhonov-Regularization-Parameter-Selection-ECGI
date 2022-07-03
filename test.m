@@ -69,7 +69,7 @@ l_files = length(files);
 folder = files(1).folder;
 
 %% Tikhonov Solution loop
-show_plot = 1;
+show_plot = 0;
 AT_TABLE_CC_L = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
 AT_TABLE_CC_ADPC = cell2table(cell(16,5), 'VariableNames', {'10', '12.5', '15', '17.5', '20'});
 for ratio = [10,12.5,15,17.5,20]
