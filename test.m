@@ -76,10 +76,11 @@ AT_TABLE_CC_ADPC = cell2table(cell(17,6), 'VariableNames', var_names);
 
 AT_TABLE_CC_L.("Test Beat ID") = [1:17]';
 AT_TABLE_CC_ADPC.("Test Beat ID") = [1:17]';
-
 for ratio = [10,12.5,15,17.5,20]
     CC_list = zeros(2,l_files);
     RE_list = zeros(2,l_files);
+    elapsed_times_L = [];
+    elapsed_times_ADPC = [];
     for i = 1:l_files
         display(['Now processing file ',num2str(i)])
         pause(0.1)
@@ -92,8 +93,8 @@ for ratio = [10,12.5,15,17.5,20]
         X_test = X_test.potvals;
         Y = A_for*X_test;
         [Y, std_noise, N] = add_noise(Y, 30, 'SNR');
-        [Xtikh, lambda_L] = tikhonov_solution(Y,A_inv);
-        [Xtikh_ADPC, lambda] = ADPC(A_inv,Y, ratio, 0, 0, ['gifs/TestBeat_',num2str(i),'_Ratio_',num2str(ratio),'.gif']);
+        [Xtikh, lambda_L, L_curve_elapsed] = tikhonov_solution(Y,A_inv);
+        [Xtikh_ADPC, lambda, ADPC_elapsed] = ADPC(A_inv,Y, ratio, 0, 0, ['gifs/TestBeat_',num2str(i),'_Ratio_',num2str(ratio),'.gif']);
         temp_struct.Xinv = Xtikh;
         [RE_nodes, ~, ~] = calculate_re(X_test',Xtikh_ADPC');
         CC_rowwise = calculate_cc(X_test',Xtikh_ADPC');
@@ -134,7 +135,10 @@ for ratio = [10,12.5,15,17.5,20]
         CC_list(2,i) = median(CC_rowwise_Lcurve);
         RE_list(1,i) = median(RE_nodes);
         RE_list(2,i) = median(RE_nodes_Lcurve);
+        elapsed_times_ADPC(end+1) = ADPC_elapsed;
+        elapsed_times_L(end+1) = L_curve_elapsed;
     end
+
 
     temp_name = num2str(ratio);
     data = cell2mat(AT_TABLE_CC_L.(temp_name));
@@ -152,8 +156,8 @@ for ratio = [10,12.5,15,17.5,20]
     save(['ADPC_vs_LCurve_Results_Ratio_',num2str(ratio),'.mat'],"GrammStruct")
     draw_gramm(['ADPC_vs_LCurve_Results_Ratio_',num2str(ratio),'.mat'],'MetricNames','Metrics','RegMethodNames' ...
         ,['ADPC vs L-Curve Results for ADPC Ratio: ',(num2str(ratio))])
-    table2latex(AT_TABLE_CC_L,['L_Curve_AT_CC_Ratio_',num2str(ratio)])
-    table2latex(AT_TABLE_CC_ADPC,['ADPC_AT_CC_Ratio_',num2str(ratio)])
-
 end
+
+table2latex(AT_TABLE_CC_L,['L_Curve_AT_CC'])
+table2latex(AT_TABLE_CC_ADPC,['ADPC_AT_CC'])
 

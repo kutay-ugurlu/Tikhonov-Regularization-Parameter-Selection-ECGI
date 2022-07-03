@@ -40,6 +40,7 @@
 \usepackage{makecell}
 \usepackage{footnote}
 \usepackage{hyperref}
+\usepackage{slashbox}
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
@@ -119,8 +120,8 @@ technique for the Tikhonov method}}
 \section{Introduction}\label{sec:intro}
 
 \indent Electrocardiographic Imaging (ECGI) is a noninvasive method for reconstructing the epicardial potentials from the body surface potential mapping that can diagnose diseases such as tachycardia \cite{intini2005electrocardiographic} and atrial fibrillation \cite{figuera2016regularization,schuler2017ecg}. The number of measurement non-invasively taken from the torso surface, however, is less than the number of reconstructed cardiac sources that provides satisfactory spatial resolution for the diagnosis. Due to the inherent ill-posedness of this underdetermined problem, utilization of regularization is mandatory to achieve physiologically suitable solutions \cite{milanivc2014assessment}. Tikhonov Regularization is a widely used regularization technique in ECGI community and has been found to outperform the other methods depending on the formulation of the problem \cite*{milanivc2014assessment}. The regularization technique imposes a prior on the inverse problem solution and weights the candidate solutions with the data-fidelity term in the cost function with a regularization parameter $\lambda$. Chamorro-Servent, \textit{et al.}, proposes a new method called Automated Discrete Picard Condition(ADPC) in their study \cite*{chamorro2017improving} to automatically find a suitable regularization parameter $\lambda$. 
-This project report investigates the idea reported in \textit{Improving the spatial solution of electrocardiographic
-imaging: A new regularization parameter choice technique for the Tikhonov method}~\cite{chamorro2017improving}.  
+This project investigates the idea reported in \textit{Improving the spatial solution of electrocardiographic
+imaging: A new regularization parameter choice technique for the Tikhonov method}~\cite{chamorro2017improving}. The presentation, results and the developed software can be found in \href{https://github.com/kutay-ugurlu/Tikhonov-Regularization-Parameter-Selection-ECGI}{this repository \faExternalLink*}  .
 \\
 \\
 The organization of the report is as follows:
@@ -130,8 +131,6 @@ The organization of the report is as follows:
     \item The methods, datasets and the details regarding the implementation of proposed methods for both the original study and the reimplemented version with another experimental setup are shared in the \nameref{sec:implementation} section.
     \item Section \nameref{sec:discussion} is left for the presentation of the results from conducted experiments along with the original results presented in the study and the discussion comparing the performances of the related method.
 \end{itemize}
-
-\newpage
 
 \section{Theory}\label{sec:theory}
 
@@ -196,7 +195,7 @@ Given the inherent ill-posedness of the problem, regularization techniques shoul
 
 \subsection{Tikhonov Regularization}\label{subsec:tikreg}
 
-Given the system $Ma = b$, the Tikhonov regularized solution with bounded energy constraint can be obtained by minimizing the cost function J:
+One can propose different regularization functions for the solution of the ECGI problem such as first and second order operators \cite*{milanivc2014assessment}. Given the system $Ma = b$, the Tikhonov regularized solution with bounded energy constraint can be obtained by minimizing the cost function J:
 \begin{equation}
     J(a,\lambda) = ||Ma-b||^2 + \lambda ||a||^2
 \end{equation}
@@ -262,7 +261,6 @@ In ill-posed problems such as ECGI, there arises a point where singular values d
 
 In a healthy heart, Sinoatrial(SA) node is the natural pacemaker of the heart, \textit{i.e.}, the electrical signals start to propagate on the epicardial surface from this point. However, there may be some cardiac diseases where this point changes. Hence, it is a critical diagnosis factor for some diseases and locating this pacing site is critically important. The most common approach to this problem is to define a specific time instance, activation time(AT), for each beat paced from each node of the heart, and find the node having minimum AT is marked as the pacing site. Furthermore, regularization techniques can be utilized to enhance AT computation \cite*{erem2013using}.
 
-\newpage
 \subsection{Existent Regularization Parameter Choice Techniques}\label{subsec:paramselect}
 
 The authors use 3 different techniques to compare the performance of their newly proposed selection algorithm. 
@@ -274,6 +272,8 @@ CRESO \cite{colli1985mathematical} chooses the parameter that generates the firs
 \begin{equation}
     C(\lambda) = \left\{ \frac{d}{d(\lambda^2)}(\lambda^2||a(\lambda)||^2) -  \frac{d}{d(\lambda^2)}||Ma(\lambda) - b||^2 \right\}
 \end{equation}
+
+\newpage
 
 \subsubsection{L-Curve}
 
@@ -335,7 +335,7 @@ The authors used the MFS solutions model explained in Section \nameref{subsec:MF
 
 \subsubsection{Reimplementation}\label{subsec:modelreimplement}
 
-In the reimplementation of the study, BEM is used to construct the forward model. The geometries were based on the torso tank experiments in \cite{macleod1995electrocardiographic}. Since BSPM is generated by the ground truth models, one should use a different inverse model to avoid inverse crimes. Hence, while the forward model is generated using a more realistic conductivity distribution by adding the lungs into the torso, lungs were removed out of the torso and a homogenous heart-torso model is utilized in the generation of the model. 
+In the reimplementation of the study, bounded energy constrain is used to match the study. In addition, BEM is used to construct the forward model. The geometries were based on the torso tank experiments in \cite{macleod1995electrocardiographic}. Since BSPM is generated by the ground truth models, one should use a different inverse model to avoid inverse crimes. Hence, while the forward model is generated using a more realistic conductivity distribution by adding the lungs into the torso, lungs were removed out of the torso and a homogenous heart-torso model is utilized in the generation of the model. 
 
 \begin{figure}[h!]
     \centering
@@ -383,7 +383,7 @@ The authors used the median-upper quartile-lower quartile representation for the
 \caption{\label{tab:RecTab}Reconstruction comparisons from the original paper}
 \end{table}
 
-When the correlation coefficient for the reconstructions are inspected in Table \ref{tab:RecTab}, ADPC seems to outperform the remaining techniques by 6\% in average, showing the importance of the regularization parameter choice technique. Although REs are not much effected for the SSWs, they decreased by 21\% wwith respect to the CRESO method. All in all, the method is able to achieve the minimum relative error metric among the techniques utilized.
+When the correlation coefficient for the reconstructions are inspected in Table \ref{tab:RecTab}, ADPC seems to outperform the remaining techniques by 6\% in average, showing the importance of the regularization parameter choice technique. Although REs are not much effected for the SSWs, they decreased by 21\% with respect to the CRESO method. All in all, the method is able to achieve the minimum relative error metric among the techniques utilized.
 
 \begin{table}[h]
     \centering
@@ -403,8 +403,114 @@ In this Picard plot, it is observed that $\frac{|u_i^Tb|}{\sigma_i}$ starts to g
 
 \subsection{Reimplementation results}
 
-\subsubsection*{Ratio:$\rho$}
+\subsubsection*{Ratio:$\rho$ and Reconstruction} \label{subsec:ratiorho}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{../images/ADPC_vs_L-Curve_Results_for_ADPC_Ratio_10.png}
+    \caption{Ratio:10}\label{subfig:a}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{../images/ADPC_vs_L-Curve_Results_for_ADPC_Ratio_12_5.png}
+    \caption{Ratio:12.5}\label{subfig:b}
+    \end{subfigure}\\
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{../images/ADPC_vs_L-Curve_Results_for_ADPC_Ratio_15.png}
+        \caption{Ratio:15}\label{subfig:c}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{../images/ADPC_vs_L-Curve_Results_for_ADPC_Ratio_17_5.png}
+        \caption{Ratio:17.5}\label{subfig:d}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.32\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{../images/ADPC_vs_L-Curve_Results_for_ADPC_Ratio_20.png}
+            \caption{Ratio:20}\label{subfig:e}
+            \end{subfigure}
+    \caption{Box Plots for different Ratios}
+    \label{fig:diff_ratio}
+\end{figure}
+
+5 experiments were conducted utilizing different ADPC ratios ranging from 10 to 20 and compared to the L-curve method for regularization parameter. The data in the box plots are the median CC values of the reconstruction of 16 different test beats. The most important observation from these experiments is that the ADPC reconstruction resulted in a wider range of performance metrics in both ends when compared to the L-curve, implying that the standard deviation between different beats is higher and hence the generalization performance or reliability of the solutions when different test data is utilized is lower.
+
+\newpage 
+
+\subsubsection{Activation Time}
+
+\begin{table}[h]
+\centering{
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline 
+        \backslashbox{Test Beat ID}{Ratio} & 10 & 12.5 & 15 & 17.5 & 20 & L-Curve \\ 
+        \hline 
+        1 & 0.79526 & 0.85571 & 0.85571 & 0.87756 & 0.86082 & 0.83593 \\ 
+        2 & 0.90664 & 0.89458 & 0.89458 & 0.8263 & 0.8043 & 0.90869 \\ 
+        3 & 0.962 & 0.962 & 0.8708 & 0.83044 & 0.8175 & 0.97202 \\ 
+        4 & 0.82075 & 0.82075 & 0.82075 & 0.71808 & 0.68749 & 0.78362 \\ 
+        5 & 0.84375 & 0.84375 & 0.88402 & 0.87541 & 0.87541 & 0.88473 \\ 
+        6 & 0.97231 & 0.97231 & 0.97231 & 0.97231 & 0.97231 & 0.97864 \\ 
+        7 & 0.84824 & 0.84824 & 0.84824 & 0.84824 & 0.83318 & 0.84226 \\ 
+        8 & 0.23961 & 0.846 & 0.846 & 0.846 & 0.846 & 0.8396 \\ 
+        9 & 0.71908 & 0.71908 & 0.71908 & 0.89024 & 0.88607  & 0.85052 \\ 
+        10 & 0.788 & 0.788 & 0.788 & 0.788 & 0.86462 & 0.80623 \\ 
+        11 & 0.0096303 & 0.0096303 & 0.96448 & 0.96448 & 0.93041 & 0.94506 \\ 
+        12 & 0.96528 & 0.96528 & 0.96528 & 0.90321 & 0.88446 & 0.96703 \\ 
+        13 & 0.97667 & 0.97667 & 0.97667 & 0.97667 & 0.96152 & 0.96781 \\ 
+        14 & 0.96098 & 0.96098 & 0.96098 & 0.96098 & 0.94871 & 0.95116 \\ 
+        15 & 0.94591 & 0.94591 & 0.94591 & 0.89331 & 0.88808 & 0.92209 \\ 
+        16 & 0.93284 & 0.93284 & 0.93284 & 0.89218 & 0.87455 & 0.91984 \\ \hline 
+        Median & 0.87744 & 0.87514 & 0.8893 & 0.8839 & 0.87498 & 0.91426 \\ 
+        \hline 
+    \end{tabular}}
+\caption{\label{tab:CCADPCtab}Activation Time CCs for ADPC Reconstruction with different ratios and L-Curve}
+\end{table}
+
+When the correlation coefficient of the activation time of 10th and 11th beat is inspected, one can observe that the modification of the algorithm by introduction of ratio parameter $\rho$ is mandatory to achieve satisfactory results. 
+
+\subsubsection{Performance Comparison}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{../images/recs1.png}
+\caption{Test Beat 3}\label{subfig:rec1}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=0.8\textwidth]{../images/recs3.png}
+\caption{Test Beat 13}\label{subfig:rec3}
+\end{subfigure}
+\caption{Reconstructions for Ratio:15}
+\label{fig:recs_compare}
+\end{figure}
+
+In Figure \ref{fig:recs_compare}, two reconstructed electrogram beats with the corresponding test beats are presented for ADPC and L Curve results. In Figure \ref{subfig:rec1} L curve reconstruction outperforms the ADPC by 6\% CC-wise for test data 3, whereas ADPC outperforms the L-curve by 2.8\% CC-wise in test data 13. 
+
+\subsection{Performance Comparison}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{../images/elapsed_times.png}
+\caption{Elapsed Time for ADPC and L-Curve Methods}\label{fig:timecomp}
+\end{figure}
+
+As can be seen from Figure \ref{fig:timecomp}, ADPC, utilizing SVD and polynomial fitting, takes approximately 1327\% longer computation time than L-curve implementation with 1274\% increase in the standard deviation between beats, which again shows the instability mentioned in section \ref{subsec:ratiorho} among different beats. 
 
 \newpage
+
+\subsection{Discussion}
+
+In this project, the study \textit{Improving the spatial solution of electrocardiographic imaging: A new regularization parameter choice technique for the Tikhonov method} is studied and reimplemented with a new experimental setup and with a different dataset. In the reimplementation, the ADPC method proposed in \cite{chamorro2017improving} needed to be adapted, and a new parameter is introduced to the algorithm. In fact, the authors state that this study should be repeated for the specific problem when a different numerical method such as BEM is utilized or a different singular value decayment behavior is observed. The results showed that for the setup given in this report, there is no clear choice of regularization parameter selection between L-curve and the modified ADPC, and the method should be first adapted to the specific problem before utilizing it.
+
+\subsubsection{Future work}
+This project compares the performance of the newly proposed regularization parameter search technique with a different experiment setup. To have a logical comparison, most of the hyperparameters was unchanged in the reimplementation. To decide on whether the algorithm is more beneficial than L-curve to find the optimum regularization parameter, different methods such as Generalized Cross Validation and different constrains for the Tikhonov inverse problem, such as Laplacian or Temporal Derivative operator \cite{milanivc2014assessment}, can be tried out. 
+
+
 \printbibliography
 \end{document}

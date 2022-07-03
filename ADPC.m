@@ -1,9 +1,10 @@
-function [xlambda, lambda] = ADPC(A,Y, ratio, show_plot, if_save, filename)
+function [xlambda, lambda, time_elapsed] = ADPC(A,Y, ratio, show_plot, if_save, filename)
 set(0,'DefaultFigureVisible','off');
 if nargin<6
     filename = 'output.gif';
 end
 
+tic
 [U,S,~] = svd(A);
 [~, frames] = size(Y);
 s = diag(S)';
@@ -75,6 +76,7 @@ for tk = 1:frames
     alphas(tk) = alpha;
 
 end
+time_elapsed = toc;
 
 if if_save
     for idx = 1:length(im)

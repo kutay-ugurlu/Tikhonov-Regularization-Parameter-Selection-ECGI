@@ -329,8 +329,8 @@
     \endentry
     \entry{4536071}{article}{}
       \name{author}{2}{}{%
-        {{hash=4a0f1e90e4ffca44067adc941e9a59e4}{%
-           family={Stenroos*},
+        {{hash=18246861d33b4232e1319954a6f48a92}{%
+           family={Stenroos},
            familyi={S\bibinitperiod},
            given={Matti},
            giveni={M\bibinitperiod}}}%
@@ -340,12 +340,12 @@
            given={Jens},
            giveni={J\bibinitperiod}}}%
       }
-      \strng{namehash}{b253871c53d14bf4389b087339b1e79d}
-      \strng{fullhash}{b253871c53d14bf4389b087339b1e79d}
-      \strng{bibnamehash}{b253871c53d14bf4389b087339b1e79d}
-      \strng{authorbibnamehash}{b253871c53d14bf4389b087339b1e79d}
-      \strng{authornamehash}{b253871c53d14bf4389b087339b1e79d}
-      \strng{authorfullhash}{b253871c53d14bf4389b087339b1e79d}
+      \strng{namehash}{3e6534b989e3fcd2aa6db6b839e3e997}
+      \strng{fullhash}{3e6534b989e3fcd2aa6db6b839e3e997}
+      \strng{bibnamehash}{3e6534b989e3fcd2aa6db6b839e3e997}
+      \strng{authorbibnamehash}{3e6534b989e3fcd2aa6db6b839e3e997}
+      \strng{authornamehash}{3e6534b989e3fcd2aa6db6b839e3e997}
+      \strng{authorfullhash}{3e6534b989e3fcd2aa6db6b839e3e997}
       \field{sortinit}{8}
       \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
