@@ -353,7 +353,7 @@ To compute the inverse solution, Tikhonov-SVD expression given in \eqref{eq:tikh
 
 The line search conducted for L-curve choice of regularization parameter is conducted from $min(\sigma_1\cdot 16*\epsilon, \sigma_{smallest})$ to the maximum singular value $\sigma_i$ for 200 points in an exponential manner, and L-Curve is formed. Then the point having the maximum curvature is computed as described in \cite*{hansen1993use}.
 
-
+\subsection{}
 
 \newpage
 
@@ -376,16 +376,26 @@ In both implementations of ADPC, Pearson's Correlation Coefficient and Relative 
 \begin{table}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{../images/RecTable.png}
-\caption{\label{tab:tabname}Reconstruction comparisons from the original paper}
+\caption{\label{tab:RecTab}Reconstruction comparisons from the original paper}
 \end{table}
 
 \begin{table}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{../images/RecTable.png}
-    \caption{\label{tab:tabname}Activation Time comparisons from the original paper}
+    \includegraphics[width=0.6\textwidth, height = 0.3\textwidth]{../images/ATTable.png}
+    \caption{\label{tab:ATtab}Activation Time comparisons from the original paper}
 \end{table}
 
+The authors used the median-upper quartile-lower quartile representation for the metrics for in-silico data consisting single site pacing simulations and spiral wave simulations. When the correlation coefficient for the reconstructions are inspected in Table \ref{tab:RecTab}, ADPC seems to outperform the remaining techniques by 6\% in average, showing the importance of the regularization parameter choice technique. Similarly, the method is able to achieve the minimum relative error metric among the techniques utilized.
 
+When Table \ref{tab:ATtab} is inspected, it is immediately observed that CC values of the AT maps provided by the L-curve solution is marked as NA. The authors state that L-curve outputs a large regularization parameter $\lambda$, resulting in an over-regularized solution. This phenomenon can be observed in Figure \ref{fig:versus} presented in \cite*{chamorro2017improving}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{../images/Versus.png}
+\caption{Regularization parameters found by different methods on Picard Plot}\label{fig:versus}
+\end{figure}
+
+In this Picard plot, it is observed that $\frac{|u_i^Tb|}{\sigma_i}$ starts to grow after SV index $i=~250$ and DPC starts to fail. Although ADPC seems to find a really closer index to this point, the index of the $\lambda$ parameter given by the L-curve is approximately 10, which shows the over-regularization by this method. 
 
 \newpage
 \printbibliography
